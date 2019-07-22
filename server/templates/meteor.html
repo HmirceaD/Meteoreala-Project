@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Meteoeala</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="/">Meteoreala</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/upload">Upload</a>
+          </li>
+
+        </ul>
+
+      </div>
+    </nav>
+
+    <div class = "container-fluid">
+
+        {% if meteor != "" %}
+
+            <p class = "h3"> Detection Info.</p>
+
+                <p>Location: {{ meteor.location }}</p>
+                <p>Time: {{ meteor.date }}</p>
+                <p>Database id: {{ meteor['_id'] }}</p>
+                <p>Fits File location: {{ meteor.save_path }}</p>
+
+
+                <img src= "{{ meteor.plot_name }}">
+
+                <p class = "h1">Coordinates</p>
+
+                <p> Start Point - Right Ascension: {{ meteor['coordinates']['start_point']['start_point_ra'] }}, Declination: {{ meteor['coordinates']['start_point']['start_point_dec'] }}</p>
+
+                <p> End Point - Right Ascension: {{ meteor['coordinates']['end_point']['end_point_ra'] }}, Declination: {{ meteor['coordinates']['end_point']['end_point_dec'] }}</p>
+
+                <p class = "h3"> Other Information</p>
+
+                <p>Angular Distance: {{ meteor.angular_distance }}</p>
+                <p>Magnitude: {{ meteor.magnitude }}</p>
+                <p>Meteor_Shower: {{ meteor.meteor_shower }}</p>
+
+        {% else %}}
+
+            <p class = "h1"> No meteor found with this id</p>
+
+        {% endif %}
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="/">Meteoreala</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="/">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/upload">Upload</a>
+      </li>
+
+        </ul>
+  </div>
+</nav>
+
+    <div class = "container-fluid">
+
+        <div class="jumbotron jumbotron-fluid">
+          <div class="container">
+            <h1 class="display-4">Select the files you want to be searched and analyzed for meteors</h1>
+
+                <form action = "/uploader" method = "POST"
+                 enctype = "multipart/form-data">
+                    <input type = "file" name = "files" accept = ".fit" multiple/>
+                    <input type = "submit"/>
+                </form>
+
+          </div>
+        </div>
+    </div>
+
+</body>
+</html>
