@@ -36,8 +36,7 @@ def check_meteor_lines(fits_file):
     dilu2 = cv2.dilate(canny2, np.ones((2, 2), np.uint8), iterations=1)
 
     dilu2 = cv2.flip(dilu2, 0)
-    cv2.imshow("dilu", dilu2)
-    cv2.waitKey()
+    
     lines = cv2.HoughLinesP(dilu2, 1,
                             np.pi / 180, int(config_file['METEOR_DETECTION']['HOUGH_LINES_THRESHOLD']),
                             int(config_file['METEOR_DETECTION']['HOUGH_LINES_MAX_LINE_GAP']),
